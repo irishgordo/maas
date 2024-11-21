@@ -39,4 +39,4 @@ if [ $reserve -le $min_free_kbytes ]; then
     reserve=$(($min_free_kbytes + 10240))
 fi
 testable_memory=$(awk -v reserve=$reserve '/MemFree/ { print int($2 - reserve) "K"}' /proc/meminfo)
-sudo -n memtester $testable_memory 1
+memtester $testable_memory 1
